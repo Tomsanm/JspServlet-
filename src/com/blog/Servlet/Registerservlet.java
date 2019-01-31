@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.blog.dao.RegisterDao;
-import com.blog.dao.RegisterData;
+
+
+import com.blog.daoImp.RegisterDaoImp;
+import com.blog.entity.RegisterEntity;
 
 
 @WebServlet("/com/blog/servlet/Registerservlet")
@@ -33,7 +35,7 @@ public class Registerservlet extends HttpServlet {
 		String sex = request.getParameter("usex");
 		String email = request.getParameter("uemail");
 		// 将数据装入 数据实体
-		RegisterData data = new RegisterData();
+		RegisterEntity data = new RegisterEntity();
 		data.setUname(name);
 		
 		System.out.println("输出pwd   "+pwd+"   "+pwdCheck);
@@ -47,9 +49,9 @@ public class Registerservlet extends HttpServlet {
 			data.setuEmail(email);
 		
 		// 执行 数据访问层；写入数据并返回是否写入成功的页面（在dao层写一个写入数据库的静态方法）
-		            int flag = RegisterDao.in_tb_user(data) ;
-		
-					if (flag == 1 ) {
+			RegisterDaoImp ri = new RegisterDaoImp();
+		            boolean flag = ri.in_tb_user(data) ;
+					if (flag) {
 						response.sendRedirect("/Blog_Project/registerSeccessful.jsp");
 						System.out.println("数据写入成功...");
 					}

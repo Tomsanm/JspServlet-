@@ -8,17 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <title>个人博客</title>
-    <style type="text/css">
-    
-    body {
-    padding-top: 65px;
-    padding-bottom: 40px;
-    background-color: #eee;
-    }
-    
-    </style>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 <!-- 导航栏-->
@@ -57,15 +48,11 @@
         <div class="text-muted">与世界分享你的世界</div>
         <br>
         <br>
-        <p><a role="button" href="register.jsp" class="btn btn-success">去注册</a></p>
+        <p><a role="button" href="#" class="btn btn-success">注册</a></p>
     </div>
 </div>
 
-<div class="jumbotron">
 
-
-"   "
-</div>
 
 <!--底部-->
 <nav class="navbar navbar-default navbar-fixed-bottom">

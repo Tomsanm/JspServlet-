@@ -7,8 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.blog.dao.WriteDao;
-import com.blog.dao.WriteData;
+
+import com.blog.daoImp.WriteDaoImp;
+import com.blog.entity.WriteEntity;
 
 /**
  * Servlet implementation class Article_in
@@ -31,10 +32,11 @@ public class Article_in_servlet extends HttpServlet {
 		String text = request.getParameter("t1");
 		String title = request.getParameter("article_title");
 		System.out.println("将数据保存在实体类中  text"+text);
-		WriteData data = new WriteData(text);
+		WriteEntity data = new WriteEntity(text);
 		data.setTitle(title);
+		WriteDaoImp ri = new WriteDaoImp();
 		// 调用数据访问层  写入数据库
-		if(WriteDao.in_tb_article_info(data)==1) {
+		if(ri.in_tb_article_info(data)) {
 			
 			// 发表成功
 			response.sendRedirect("/Blog_Project/pressSuccess.jsp");

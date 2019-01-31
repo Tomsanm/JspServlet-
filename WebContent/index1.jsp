@@ -12,15 +12,25 @@
     <title>个人博客</title>
     <style type="text/css">
     
-    body {
-    padding-top: 65px;
-    padding-bottom: 40px;
-    background-color: #eee;
-    }
+		    body {
+		    padding-top: 65px;
+		    padding-bottom: 40px;
+		    background-color: #eee;
+		    }
     
     </style>
+    
+    
 </head>
 <body>
+
+<%
+String name = (String) session.getAttribute("uname");
+
+if (name==null){response.sendRedirect("/Blog_Project/login.jsp");}
+%>
+
+
 <!-- 导航栏-->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation"  >
 
@@ -34,19 +44,23 @@
         </button>
 
         <!--小屏幕的导航按钮和logo-->
-        <a href="index.html" class="navbar-brand">博客首页</a>
+        <a href="#" class="navbar-brand">博客首页</a>
         </div>
         <!--导航-->
         <div class="collapse navbar-collapse" id="nav-all">
             <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="login.jsp">登录</a></li>
-                <li><a href="register.jsp">注册</a></li>
-                <li><a href="#">关于</a></li>
+             
+            <li><a href="#"><%=name %>的博客</a></li>
+               
+                <li> <a href="write.jsp">开始创作</a></li>
+                <li><a href="#">个人中心</a></li>
+                <li><a href="invalidate.jsp">注销</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<!-- 内容 -->
+
 <!-- 内容 -->
 
 
@@ -57,7 +71,7 @@
         <div class="text-muted">与世界分享你的世界</div>
         <br>
         <br>
-        <p><a role="button" href="register.jsp" class="btn btn-success">去注册</a></p>
+        <p><a role="button" href="write.jsp" class="btn btn-success">去创作</a></p>
     </div>
 </div>
 
@@ -77,6 +91,8 @@
 <script src="bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
+    
+    
     
     
     
