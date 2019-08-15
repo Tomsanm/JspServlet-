@@ -15,7 +15,7 @@ public class DataBase {
 	// 用户名
 	static final String uname = "root";
 	// 密码
-	static final String upwd = "140429";
+	static final String upwd = "你的数据库密码";
 	
 	Connection conn = null;
 	Statement sm=null;
